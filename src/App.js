@@ -4,7 +4,7 @@ import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import SignUp from './components/signUp/SignUp';
 import Layout from './components/Layout/Layout';
-
+import {userAuthContextProvider} from "./UserAuthContext"
 
 
 function App() {
@@ -47,7 +47,7 @@ useEffect (() => {
   return (
     <React.Fragment>
      
-      
+     <userAuthContextProvider> 
       <Routes>
       
         <Route exact path='/main' element={<Layout />}/>
@@ -60,7 +60,7 @@ useEffect (() => {
         
       
       </Routes>
-
+      </userAuthContextProvider>
   
     </React.Fragment>
     
