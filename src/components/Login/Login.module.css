@@ -23,9 +23,9 @@
 
   }
   
-  .control label {
+   label {
     font-weight: bold;
-    flex: 0.75;
+    flex: 0.5rem;
     color: #464646;
     margin-bottom: 0.5rem;
   }
@@ -73,4 +73,12 @@
     border-radius: 20px;
     margin-top: 1.5rem;
     
+  }
+  .action {
+    font: inherit;
+    font-size: 1rem;
+    color: #464646;
+    text-align: center;
+    display: inline;
+
   }

@@ -3,16 +3,17 @@
     width: 100%;
     max-width: 100rem;
     padding: 3rem;
-    margin-top: 8rem;
+  
     background:   -webkit-linear-gradient(-10deg, #f3f3f3 0%,#f3f3f3 50%,#1b1b1b 50%,#1b1b1b 100%); /* Chrome10-25,Safari5.1-6 */
       /* background: linear-gradient(95deg, #ffffff 0%,#ffffff 50%,#1b1b1b 50%,#1b1b1b 100%); W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
    ;
   
     text-align: center;
-  color: brown;
+  color: purple;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 10px;
     font-weight: bold;
+    font-size: xx-large;
   }
   
   

@@ -10,7 +10,7 @@ const Home = (props) => {
       
       <h1>Explore best tourist places.</h1>
       
-      <p>25 most beautiful places to visit this season...</p>
+      <p>25 most beautiful places to visit...</p>
     
     </div>
     
