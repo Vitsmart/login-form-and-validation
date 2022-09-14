@@ -6,18 +6,18 @@ import { useUserAuth } from '../../UserAuthContext';
 const Navigation = (props) => {
 
 const navigate = useNavigate();
-const {logOut, currentUser} = useUserAuth();
+const {logOut} = useUserAuth();
 
 const logoutHandler = async() => {
   try {
     await logOut();
+
+     navigate('/');
    
   } catch (error) {
     console.log(error.message);
   }
-  if (currentUser) {
-      return navigate('/');
-  }
+ 
 }
 
   
