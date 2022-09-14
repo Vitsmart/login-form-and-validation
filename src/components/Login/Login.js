@@ -7,18 +7,7 @@ import { useUserAuth } from '../../UserAuthContext';
 import { auth, provider, signInWithRedirect } from '../../firebase';
 import { getRedirectResult } from 'firebase/auth';
 
-//   length > 6);
-//   };
-
-  // const submitHandler = (event) => {
-  //   event.preventDefault();
-  //   props.onLogin(enteredEmail, enteredPassword);
-  // }  
-//  const clickLogin = () => {
-//  navigate("/main");}
-
-
-  
+ 
 const Login = (props) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
@@ -31,7 +20,7 @@ const Login = (props) => {
     //Redirect to main page if user is logged in
       useEffect(() => {
       if (currentUser) {
-          return navigate('/');
+          navigate('/main')
       }
     }, [currentUser])
 
@@ -62,7 +51,6 @@ provider.addScope('email');
             console.log(user,token);
           }
           const operationType = result.operationType;
-          console.log(operationType);
     } catch (error) {
         console.log(error.message);
     }
