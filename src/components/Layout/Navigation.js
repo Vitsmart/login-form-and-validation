@@ -4,6 +4,7 @@ import styles from './Navigation.module.css';
 import { useUserAuth } from '../../UserAuthContext';
 
 const Navigation = (props) => {
+
 const navigate = useNavigate();
 const {logOut, currentUser} = useUserAuth();
 
@@ -17,7 +18,9 @@ const logoutHandler = async() => {
   if (currentUser) {
       return navigate('/');
   }
+}
 
+  
 
 
 
@@ -45,9 +48,9 @@ const logoutHandler = async() => {
           </li>
         
         
-          <li>
+          {/* <li>
             <button onClick={logoutHandler}>Logout</button>
-          </li>
+          </li> */}
         
       </ul>
     </nav>
@@ -57,5 +60,5 @@ const logoutHandler = async() => {
       
   );
 };
-}
+
 export default Navigation;
