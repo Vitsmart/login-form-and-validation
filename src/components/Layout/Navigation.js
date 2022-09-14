@@ -3,7 +3,7 @@ import {  NavLink, useNavigate} from "react-router-dom"
 import styles from './Navigation.module.css';
 import { useUserAuth } from '../../UserAuthContext';
 
-const Navigation = (props) => {
+const Navigation = () => {
 
 const navigate = useNavigate();
 const {logOut} = useUserAuth();
