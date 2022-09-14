@@ -1,23 +1,26 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {  NavLink, useNavigate} from "react-router-dom"
 import styles from './Navigation.module.css';
 import { useUserAuth } from '../../UserAuthContext';
 
-const Navigation = (props) => {
+const Navigation = () => {
+
 const navigate = useNavigate();
-const {logOut, currentUser} = useUserAuth();
+const {logOut} = useUserAuth();
 
 const logoutHandler = async() => {
   try {
     await logOut();
+
+     navigate('/');
    
   } catch (error) {
     console.log(error.message);
   }
-  if (currentUser) {
-      return navigate('/');
-  }
+ 
+}
 
+  
 
 
 
@@ -57,5 +60,5 @@ const logoutHandler = async() => {
       
   );
 };
-}
+
 export default Navigation;

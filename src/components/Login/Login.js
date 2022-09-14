@@ -7,34 +7,32 @@ import { useUserAuth } from '../../UserAuthContext';
 import { auth, provider, signInWithRedirect } from '../../firebase';
 import { getRedirectResult } from 'firebase/auth';
 
-//   length > 6);
-//   };
-
-  // const submitHandler = (event) => {
-  //   event.preventDefault();
-  //   props.onLogin(enteredEmail, enteredPassword);
-  // }  
-//  const clickLogin = () => {
-//  navigate("/main");}
-
-
-  
+ 
 const Login = (props) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
-    const {login} = useUserAuth();
+    const {logIn} = useUserAuth();
+  const {currentUser} = useUserAuth();
+
+
+    //Redirect to main page if user is logged in
+      useEffect(() => {
+      if (currentUser) {
+          navigate('/main')
+      }
+    }, [currentUser])
 
   const submitLoginHandler = async (e) => {
-e.preventDefault();
+        e.preventDefault();
 
-try {
-    await login(email, password);
-    
-} catch (error) {
-   return (error.message); 
-}
+        try {
+            await logIn(email, password);
+            
+        } catch (error) {
+        console.log({error}) 
+        }
   };
  
 
@@ -53,17 +51,16 @@ provider.addScope('email');
             console.log(user,token);
           }
           const operationType = result.operationType;
-          console.log(operationType);
     } catch (error) {
         console.log(error.message);
     }
   };
-  const {currentUser} = useUserAuth();
+
+ 
   
   
-    if (currentUser) {
-        return navigate('/');
-    }
+ 
+
 
 
 
@@ -95,11 +92,13 @@ provider.addScope('email');
           <Button type="submit" className={styles.btn}>
             Login
           </Button>
-          <div>
+          
+        </div>
+
+        </form>
+        <div>
             <button type="submit" onClick={googleSignIn}>SignIn with google</button>
           </div>
-        </div>
-        </form>
         <div className={styles.action}>
           Dont have an account? <Link to="/signup">Register</Link>
         </div>
