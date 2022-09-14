@@ -26,15 +26,23 @@ const Login = (props) => {
     
     const {login} = useUserAuth();
 
-  const submitLoginHandler = async (e) => {
-e.preventDefault();
 
-try {
-    await login(email, password);
-    
-} catch (error) {
-   return (error.message); 
-}
+     useEffect(() => {
+
+    if (currentUser) {
+        return navigate('/');
+    }
+  }, [])
+
+  const submitLoginHandler = async (e) => {
+        e.preventDefault();
+
+        try {
+            await login(email, password);
+            
+        } catch (error) {
+          return (error.message); 
+        }
   };
  
 
@@ -61,9 +69,8 @@ provider.addScope('email');
   const {currentUser} = useUserAuth();
   
   
-    if (currentUser) {
-        return navigate('/');
-    }
+ 
+
 
 
 
@@ -92,14 +99,16 @@ provider.addScope('email');
             />
         </div>
         <div className={styles.actions}>
-          <Button type="submit" className={styles.btn}>
+          <Button type="submit" className={styles.btn} onClick={submitLoginHandler}>
             Login
           </Button>
-          <div>
+          
+        </div>
+
+        </form>
+        <div>
             <button type="submit" onClick={googleSignIn}>SignIn with google</button>
           </div>
-        </div>
-        </form>
         <div className={styles.action}>
           Dont have an account? <Link to="/signup">Register</Link>
         </div>
