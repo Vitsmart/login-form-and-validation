@@ -24,7 +24,8 @@ const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
-    const {login} = useUserAuth();
+    const {logIn} = useUserAuth();
+  const {currentUser} = useUserAuth();
 
 
     //Redirect to main page if user is logged in
@@ -32,17 +33,16 @@ const Login = (props) => {
       if (currentUser) {
           return navigate('/');
       }
-    }, [])
+    }, [currentUser])
 
   const submitLoginHandler = async (e) => {
         e.preventDefault();
-        console.log('submitting');
 
         try {
-            await login(email, password);
+            await logIn(email, password);
             
         } catch (error) {
-          return (error.message); 
+        console.log({error}) 
         }
   };
  
@@ -67,7 +67,8 @@ provider.addScope('email');
         console.log(error.message);
     }
   };
-  const {currentUser} = useUserAuth();
+
+ 
   
   
  
@@ -106,11 +107,10 @@ provider.addScope('email');
           
         </div>
 
-            <div>
-            <button type="submit" onClick={() => console.log("submit")}>SignIn with google</button>
-          </div>
         </form>
-       
+        <div>
+            <button type="submit" onClick={googleSignIn}>SignIn with google</button>
+          </div>
         <div className={styles.action}>
           Dont have an account? <Link to="/signup">Register</Link>
         </div>
