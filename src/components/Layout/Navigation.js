@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {  NavLink, useNavigate} from "react-router-dom"
 import styles from './Navigation.module.css';
 import { useUserAuth } from '../../UserAuthContext';
@@ -48,9 +48,9 @@ const logoutHandler = async() => {
           </li>
         
         
-          {/* <li>
+          <li>
             <button onClick={logoutHandler}>Logout</button>
-          </li> */}
+          </li>
         
       </ul>
     </nav>
