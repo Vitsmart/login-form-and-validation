@@ -43,11 +43,13 @@ const SignUp = () => {
         };
 
     };
-    
+    useEffect(() => {
         if (currentUser) {
             return navigate('/');
         }
     
+    }, [currentUser])
+        
     
     
 

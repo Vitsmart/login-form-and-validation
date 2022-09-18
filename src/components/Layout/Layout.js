@@ -7,7 +7,7 @@ const Layout = (props) => {
     
     return (
         <div>
-            <p>How are you</p>
+            <h1>Welcome to Noble Blog</h1>
             <Navigation />
             <Outlet />
         </div>

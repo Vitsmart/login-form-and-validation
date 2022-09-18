@@ -58,12 +58,6 @@ provider.addScope('email');
 
  
   
-  
- 
-
-
-
-
 
   return (
     <Card className={styles.login}>
